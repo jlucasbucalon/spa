@@ -5,6 +5,26 @@ import { renderPage } from './render.js'
 
 const app = express()
 
+// Keep client scripts compatible with a strict, local-only CSP.
+app.use((_req, res, next) => {
+  res.setHeader(
+    'Content-Security-Policy',
+    [
+      "default-src 'self'",
+      "base-uri 'self'",
+      "object-src 'none'",
+      "frame-ancestors 'none'",
+      "script-src 'self'",
+      "style-src 'self'",
+      "style-src-attr 'unsafe-inline'",
+      "img-src 'self' data: blob:",
+      "font-src 'self' data:",
+      "connect-src 'self'",
+    ].join('; ')
+  )
+  next()
+})
+
 // ------------------
 // PATH FIX (ESM)
 // ------------------
