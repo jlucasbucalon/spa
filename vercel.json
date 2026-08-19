@@ -1,23 +1,18 @@
 {
   "version": 2,
-  "functions": {
-    "api/index.js": {
-      "includeFiles": [
-        "index.html",
-        "client.js",
-        "render.js",
-        "src/**",
-        "components/**",
-        "pages/**",
-        "css/**",
-        "constant/**"
-      ]
-    }
-  },
-  "rewrites": [
+  "builds": [
     {
-      "source": "/(.*)",
-      "destination": "/api"
+      "src": "**/*",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/.*",
+      "dest": "/index.html"
     }
   ]
 }
