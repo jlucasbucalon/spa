@@ -44,10 +44,7 @@ app.use(
   '/assets',
   express.static(path.join(__dirname, 'assets'))
 )
-app.use(
-  '/src',
-  express.static(path.join(__dirname, 'src'))
-)
+app.use('/src', express.static(path.join(__dirname, 'src')))
 app.use(express.static(__dirname))
 
 // ------------------
