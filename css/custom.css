@@ -19,7 +19,6 @@ hr {
   border: 1px solid var(--bg-menu);
   border-radius: var(--box-radius);
   margin-top: 30px;
-
   box-shadow: var(--box-shadow);
 }
 
