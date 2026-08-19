@@ -40,26 +40,16 @@ function resolveImages(html) {
 // TEMPLATE FINAL
 // ------------------
 
-function buildHTML(content) {
-  return `
-<!DOCTYPE html>
-<html data-theme="light">
-<head>
-  <meta charset="UTF-8" />
-  <title>SSR App</title>
-  <link rel="stylesheet" href="/styles.css" />
-</head>
-<body>
+async function buildHTML(content) {
+  const template = await fs.readFile(
+    path.join(__dirname, 'index.html'),
+    'utf-8'
+  )
 
-<div id="app">
-  ${content}
-</div>
-
-<script type="module" src="/src/main.js"></script>
-
-</body>
-</html>
-`
+  return template.replace(
+    /(<main\s+id=["']route["'][^>]*>)[\s\S]*?(<\/main>)/i,
+    `$1${content}$2`
+  )
 }
 
 // ------------------
@@ -73,9 +63,10 @@ export async function renderPage(url) {
     return `<h1>404</h1><p>${url}</p>`
   }
 
-  let html = await loadHTML(route.file)
+  const pageFile = route.page.replace(/^\/pages\//, '')
+  let html = await loadHTML(`${pageFile}.html`)
 
   html = resolveImages(html)
 
-  return buildHTML(html)
+  return await buildHTML(html)
 }

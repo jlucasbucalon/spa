@@ -17,7 +17,7 @@ html {
     sans-serif,
     monospace;
 
-  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
@@ -237,7 +237,7 @@ input,
 textarea,
 select {
   appearance: none;
-  -webkit-appearance: none;
+  appearance: none;
 }
 
 a {
