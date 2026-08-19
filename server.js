@@ -44,7 +44,11 @@ app.use(
   '/assets',
   express.static(path.join(__dirname, 'assets'))
 )
-app.use(express.static(__dirname)) // opcional (client.js, etc)
+app.use(
+  '/src',
+  express.static(path.join(__dirname, 'src'))
+)
+app.use(express.static(__dirname))
 
 // ------------------
 // SSR ROUTE (CORRETA)
