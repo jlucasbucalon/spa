@@ -1,0 +1,29 @@
+page
+
+Navegação entre páginas/rotas da SPA.
+
+<a href="#/home" page>
+<a href="#/about" page>
+
+Use: quando quiser mudar de página.
+
+move
+
+Movimenta o scroll até um elemento da página.
+
+<a href="#footer" move>
+<a href="#header" move>
+
+Use: quando quiser direcionar o scroll para uma seção.
+
+data-duration
+
+Define a duração da animação do scroll em milissegundos.
+
+<a href="#footer" move data-duration="1200">
+
+Padrão: 800ms se não for informado.
+
+page → muda de página
+move → move o scroll
+data-duration → controla a velocidade do move

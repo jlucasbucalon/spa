@@ -1,2 +1,0 @@
-<a "href=#/home" page> | para navegação interna da pagina
-<a "href=#footer" move> | para direcionar o scrool
