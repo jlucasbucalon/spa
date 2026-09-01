@@ -5,11 +5,11 @@ import {
 } from './modules/core/utils.js'
 
 import { imageMap, linkMap, iconMap } from './assets.js'
-import { routes } from './path.js'
+import { childrens } from './path.js'
 import { configureSheet } from './modules/core/sheet.js'
 import { createApp } from './modules/lib/index.js'
-export function matchRoute(url, routes) {
-  return routes.find((r) => r.path.test(url))
+export function matchRoute(url, childrens) {
+  return childrens.find((r) => r.path.test(url))
 }
 
 import './modules/core/theme.js'
@@ -58,10 +58,10 @@ function bootstrapClient() {
 
   // app SPA
   const app = createApp({
-    routes,
+    childrens,
     config,
     root:
-      document.getElementById('route') ||
+      document.getElementById('children') ||
       document.getElementById('app'),
   })
 

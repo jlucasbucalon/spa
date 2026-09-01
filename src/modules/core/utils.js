@@ -185,7 +185,7 @@ export function applyAssets(root = document) {
 // OBSERVER SPA
 // --------------------------------------------------
 
-export function observeAssets(id = 'route') {
+export function observeAssets(id = 'children') {
   if (!isDOM) return
 
   const el = document.getElementById(id)

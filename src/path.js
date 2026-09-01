@@ -2,7 +2,7 @@
 // IMAGENS CENTRALIZADAS
 // ------------------
 
-export const routes = [
+export const childrens = [
   { path: /^\/home$/, page: '/pages/home' },
   { path: /^\/about$/, page: '/pages/about' },
   { path: /^\/work$/, page: '/pages/work' },

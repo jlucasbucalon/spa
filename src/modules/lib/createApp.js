@@ -3,7 +3,7 @@ import { initOptimize } from '../optimize/index.js'
 import { loadModels } from './model.js'
 import { loadAllComponents } from './layout.js'
 
-export function createApp({ routes, config, root }) {
+export function createApp({ childrens, config, root }) {
   return {
     mount() {
       if (!root) return
@@ -11,7 +11,7 @@ export function createApp({ routes, config, root }) {
       initOptimize()
 
       const router = createRouter({
-        routes,
+        childrens,
         config,
         root,
       })

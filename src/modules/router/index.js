@@ -1,6 +1,6 @@
 import { loadPage } from './loader.js'
 import { handleNavigation } from './navigation.js'
-export function createRouter({ routes, config, root }) {
+export function createRouter({ childrens, config, root }) {
   function resolveRoute() {
     let hash = window.location.hash
     if (!hash) {
@@ -9,12 +9,12 @@ export function createRouter({ routes, config, root }) {
     }
     if (!hash.startsWith('#/')) return
     const path = hash.slice(1)
-    const route = routes.find((r) => r.path.test(path))
-    if (!route) {
+    const children = childrens.find((r) => r.path.test(path))
+    if (!children) {
       root.innerHTML = '<p>Página não encontrada.</p>'
       return
     }
-    loadPage(route.page, root)
+    loadPage(children.page, root)
   }
   function init() {
     handleNavigation(resolveRoute)
