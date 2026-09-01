@@ -1,13 +1,11 @@
-// client/bootstrap.js
-
-import { initTheme } from '../modules/core/theme.js'
-import { initAssets } from '../modules/core/utils.js'
-import { initLazyLoad } from '../modules/optimize/lazy.js'
+import {
+  bindThemeToggle,
+  initTheme,
+} from './src/modules/core/theme.js'
 
 function bootstrap() {
   initTheme()
-  initAssets()
-  initLazyLoad()
+  bindThemeToggle()
 }
 
 if (document.readyState === 'loading') {

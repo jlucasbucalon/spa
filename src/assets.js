@@ -9,18 +9,18 @@ export const imageMap = {
       maxWidth: 768,
     },
   },
-  arte: {
-    src: '/constant/images/arte_perfil.png',
-    dark: '/constant/images/arte_perfil.png',
-    set: {
-      src: '/constant/images/arte_perfil.png',
-      dark: '/constant/images/arte_perfil.png',
-      maxWidth: 768,
-    },
-  },
-  logo: {
-    src: '/constant/images/logo.png',
-  },
+  // arte: {
+  //   src: '/constant/images/arte_perfil.png',
+  //   dark: '/constant/images/arte_perfil.png',
+  //   set: {
+  //     src: '/constant/images/arte_perfil.png',
+  //     dark: '/constant/images/arte_perfil.png',
+  //     maxWidth: 768,
+  //   },
+  // },
+  // logo: {
+  //   src: '/constant/images/logo.png',
+  // },
 }
 
 export const linkMap = {

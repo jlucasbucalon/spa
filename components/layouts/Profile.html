@@ -12,18 +12,13 @@
 
   img[data-image='foto'] {
     position: relative;
+    width: 380px;
   }
 
-  img[data-image='arte'] {
-    position: absolute;
-    z-index: -1;
-    margin: 0 0 0 80px;
-  }
-
-  .efect {
+  .effect {
     position: absolute;
     background-color: var(--bg-image);
-    filter: blur(30px);
+    filter: blur(100px);
     width: 20%;
     height: 20%;
     border-radius: 100%;
@@ -31,21 +26,22 @@
   }
 
   .name {
-    margin: 30px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+    margin: 20px 0;
+
+    strong {
+      font-size: 1.8rem;
+    }
   }
 </style>
 
 <html>
   <section class="profile">
     <div class="image">
-      <div class="efect"></div>
-      <img
-        data-image="arte"
-        alt="Foto da arte"
-        loading="eager"
-        fetchpriority="auto"
-        decoding="auto"
-      />
+      <div class="effect"></div>
       <img
         data-image="foto"
         alt="Foto do perfil"
@@ -55,6 +51,9 @@
       />
     </div>
 
-    <h1 class="name">João Lucas Bucalon</h1>
+    <div class="name">
+      <h1>João Lucas Bucalon</h1>
+      <strong>@jlucasbucalon</strong>
+    </div>
   </section>
 </html>

@@ -1,9 +1,5 @@
 const isBrowser = typeof window !== 'undefined'
 
-// ------------------
-// HELPERS
-// ------------------
-
 function getSystemTheme() {
   return window.matchMedia('(prefers-color-scheme: dark)')
     .matches
@@ -17,38 +13,49 @@ function getSavedTheme() {
 
 function applyTheme(theme) {
   const html = document.documentElement
-  html.dataset.theme = theme
-  localStorage.setItem('theme', theme)
-}
+  const safeTheme = theme === 'dark' ? 'dark' : 'light'
 
-// ------------------
-// INIT
-// ------------------
+  html.dataset.theme = safeTheme
+  localStorage.setItem('theme', safeTheme)
+
+  document
+    .querySelectorAll('.button-theme')
+    .forEach((toggle) => {
+      toggle.setAttribute(
+        'aria-pressed',
+        String(safeTheme === 'dark')
+      )
+    })
+}
 
 function initTheme() {
   const saved = getSavedTheme()
   applyTheme(saved || getSystemTheme())
 }
 
-// ------------------
-// DOM READY
-// ------------------
+function bindThemeToggle(root = document) {
+  if (!root || !root.querySelectorAll) return
+
+  root.querySelectorAll('.button-theme').forEach((toggle) => {
+    if (toggle.dataset.themeBound === 'true') return
+
+    toggle.addEventListener('click', () => {
+      const current = document.documentElement.dataset.theme || 'light'
+      const next = current === 'dark' ? 'light' : 'dark'
+      applyTheme(next)
+    })
+
+    toggle.dataset.themeBound = 'true'
+  })
+}
 
 if (isBrowser) {
   document.addEventListener('DOMContentLoaded', () => {
-    const toggle = document.getElementById('theme-toggle')
-
-    if (toggle) {
-      toggle.addEventListener('click', () => {
-        const html = document.documentElement
-        const current = html.dataset.theme
-        const next = current === 'dark' ? 'light' : 'dark'
-        applyTheme(next)
-      })
-    } else {
-      console.warn('Botão de tema não encontrado')
-    }
-
+    bindThemeToggle()
     initTheme()
+  })
+
+  document.addEventListener('spa:pageLoaded', (event) => {
+    bindThemeToggle(event?.target || document)
   })
 }

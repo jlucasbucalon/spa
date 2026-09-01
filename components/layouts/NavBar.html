@@ -3,14 +3,15 @@
     background-color: var(--bg-menu);
     border-radius: var(--box-radius);
     display: flex;
+    align-items: center;
     justify-content: space-around;
     padding: 12px 0;
-    margin: 30px 10% 0;
+    margin: 30px 0;
 
     box-shadow: var(--box-shadow);
   }
 
-  .box_menu my-icon {
+  .box_menu a my-icon {
     width: 2.5rem;
     height: 2.5rem;
   }
@@ -61,6 +62,16 @@
     <a href="#/work" page data-tooltip="Trabalho"
       ><my-icon data-icon="work"></my-icon
     ></a>
+  </li>
+  <li>
+    <button class="button-theme" aria-label="Alternar tema">
+      <span class="toggle_track" data-tooltip="Trocar Tema">
+        <span class="toggle_thumb">
+          <my-icon data-icon="sun"></my-icon>
+          <my-icon data-icon="moon"></my-icon>
+        </span>
+      </span>
+    </button>
   </li>
   <li>
     <a href="#/hooby" page data-tooltip="Hobbies"

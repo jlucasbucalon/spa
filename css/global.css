@@ -47,7 +47,7 @@ body {
   overflow-x: hidden;
   overscroll-behavior-x: contain;
 
-  padding: 70px 5%;
+  padding: 70px 20%;
 
   position: relative;
   color: var(--font-color);

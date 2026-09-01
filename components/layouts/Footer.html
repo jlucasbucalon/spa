@@ -3,7 +3,13 @@
     display: none;
   }
 
+  #footer {
+    width: 100%;
+    padding: 0;
+  }
+
   #footer i {
+    width: 100%;
     padding: 70px 0;
     display: block;
     text-decoration: underline;
@@ -11,11 +17,15 @@
   }
 
   #footer .icons {
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    /* display: grid;
+    grid-template-columns: repeat(6, 1fr); */
   }
 
   #footer .icons a {
+    /* flex: 1; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,7 +33,7 @@
     border-radius: var(--box-radius);
     padding: 10px;
     box-shadow: var(--box-shadow);
-    margin: 0 auto;
+    margin: 0;
   }
 
   #footer my-icon {
@@ -102,9 +112,6 @@
     <a href="/#" data-tooltip="Instagram"
       ><my-icon data-icon="instagram"></my-icon
     ></a>
-    <a href="/#" data-tooltip="TikTok"
-      ><my-icon data-icon="tiktok"></my-icon
-    ></a>
     <a href="/#" data-tooltip="WhatsApp"
       ><my-icon data-icon="whatsapp"></my-icon
     ></a>
@@ -117,9 +124,6 @@
     <a href="/#" data-tooltip="Email"
       ><my-icon data-icon="email"></my-icon
     ></a>
-    <a href="/#" data-tooltip="Currículo"
-      ><my-icon data-icon="doc"></my-icon
-    ></a>
   </div>
 
   <i btn
@@ -128,17 +132,6 @@
   >
 
   <div class="return">
-    <a href="/#" data-tooltip="Saber mais">
-      <p>Criado pela</p>
-      <img
-        data-image="logo"
-        alt="Logo da Nexo"
-        loading="lazy"
-        fetchpriority="low"
-        decoding="async"
-      />
-      <b>Nexo</b></a
-    >
     <a href="#header" move data-tooltip="Subir"
       ><my-icon
         data-icon="header"
