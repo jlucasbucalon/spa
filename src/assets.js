@@ -45,7 +45,7 @@ export const iconMap = {
   work: {
     src: '/constant/icons/work.svg',
   },
-  hooby: {
+  hobby: {
     src: '/constant/icons/hooby.svg',
   },
   gallery: {

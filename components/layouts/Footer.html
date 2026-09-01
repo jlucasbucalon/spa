@@ -8,24 +8,13 @@
     padding: 0;
   }
 
-  #footer i {
-    width: 100%;
-    padding: 70px 0;
-    display: block;
-    text-decoration: underline;
-    text-underline-offset: 3px;
-  }
-
   #footer .icons {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    /* display: grid;
-    grid-template-columns: repeat(6, 1fr); */
   }
 
   #footer .icons a {
-    /* flex: 1; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -44,22 +33,35 @@
   .return {
     width: 100%;
     display: flex;
-    justify-content: right;
-    position: absolute;
-    padding: 1%;
-    gap: 1%;
-    bottom: 0;
-    right: 0;
+    flex-wrap: wrap;
+    padding: 100px 0;
+    align-items: center;
+    position: relative;
   }
 
   .return a {
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
-    background-color: var(--bg-menu);
+    /* background-color: var(--bg-menu); */
+    background-color: var(--hover);
     border-radius: var(--box-radius);
     padding: 10px;
     box-shadow: var(--box-shadow);
+    position: fixed;
+    right: 20%;
+    bottom: 10%;
+  }
+
+  .return a.active {
+    display: flex;
+  }
+
+  #footer .return i {
+    width: 100%;
+    display: block;
+    text-decoration: underline;
+    text-underline-offset: 3px;
   }
 
   img[data-image='logo'] {
@@ -80,6 +82,10 @@
 
     #footer a:hover {
       transform: scale(1.08);
+    }
+
+    #footer .return a:hover {
+      background-color: var(--font-color);
     }
   }
 
@@ -126,12 +132,11 @@
     ></a>
   </div>
 
-  <i btn
-    >© 2022 Lucas Bucalon <br />- Todos os direitos
-    reservados.</i
-  >
-
   <div class="return">
+    <i
+      >© 2022 Lucas Bucalon <br />- Todos os direitos
+      reservados.</i
+    >
     <a href="#header" move data-tooltip="Subir"
       ><my-icon
         data-icon="header"
@@ -140,3 +145,19 @@
     ></a>
   </div>
 </section>
+
+<script>
+  const header = document.querySelector('#header')
+  const returnButton = document.querySelector('.return a')
+
+  if (header && returnButton) {
+    const observer = new IntersectionObserver(([entry]) => {
+      returnButton.classList.toggle(
+        'active',
+        !entry.isIntersecting
+      )
+    })
+
+    observer.observe(header)
+  }
+</script>

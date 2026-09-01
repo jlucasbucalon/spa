@@ -74,8 +74,8 @@
     </button>
   </li>
   <li>
-    <a href="#/hooby" page data-tooltip="Hobbies"
-      ><my-icon data-icon="hooby"></my-icon
+    <a href="#/hobby" page data-tooltip="Hobbies"
+      ><my-icon data-icon="hobby"></my-icon
     ></a>
   </li>
   <li>
@@ -92,8 +92,16 @@
 
 <script>
   function updateActiveMenu() {
-    const links = document.querySelectorAll('.box_menu a')
+    const links = document.querySelectorAll(
+      '.box_menu a:not([href="#footer"])'
+    )
+
     const currentHash = window.location.hash
+
+    // Não altera o active quando estiver no footer
+    if (currentHash === '#footer') {
+      return
+    }
 
     links.forEach((link) => {
       if (link.getAttribute('href') === currentHash) {
@@ -115,6 +123,7 @@
     if (!window.location.hash) {
       window.location.hash = '#/home'
     }
+
     updateActiveMenu()
   })
 </script>
